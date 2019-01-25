@@ -2,7 +2,7 @@
 #include<conio.h>
 void main()
 {
-int n,a[10],i,j,c=0;
+int n,a[10],i,j,k,max=0,max1=0,p=0;
 clrscr();
 printf("enter n:\n");
 scanf("%d",&n);
@@ -13,12 +13,22 @@ scanf("%d",&a[i]);
 }
 for(i=0;i<n;i++)
 {
-for(j=i+1;j<n;j++)
+if(a[i]>max)
+max=a[i];
+}
+for(k=0;k<2;k++)
 {
-c=a[i]+a[j];
-break;
+max1=0;
+for(j=0;j<n;j++)
+{
+if(a[j]>max1)
+{
+max1=a[j];
+p=j;
 }
 }
-printf("%d",c);
+a[p]=0;
+}
+printf("%d",max+max1);
 getch();
 }
